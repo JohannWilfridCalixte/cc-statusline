@@ -2,10 +2,8 @@
 
 CLI that generates a self-contained bash script for [Claude Code](https://docs.anthropic.com/en/docs/claude-code)'s statusline. Inspired by [Powerlevel10k](https://github.com/romkatv/powerlevel10k)'s visual style.
 
-```
- ~/projects/my-app |  main | ~3 ?2 |  Claude Opus 4 |  software-engineer |  normal
- 0.4521 |  2m7s |  +342 -87 |  [###-------] 29% |  5h:24% 7d:11% |  14:32:05
-```
+![](doc/cc-statusline-screenshot.jpeg)
+
 
 ## Prerequisites
 
