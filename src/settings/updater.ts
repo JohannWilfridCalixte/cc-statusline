@@ -16,7 +16,7 @@ export function updateSettings(scriptPath: string, settingsPath: string) {
     }
   }
 
-  settings.statusLine = {
+  settings["statusLine"] = {
     type: "command",
     command: scriptPath,
   };

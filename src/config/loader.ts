@@ -47,12 +47,12 @@ function getRecord(
 }
 
 function validateLineConfig(line: Record<string, unknown>): ConfigError | null {
-  if (Array.isArray(line.left)) {
-    const err = validateSegmentNames(line.left);
+  if (Array.isArray(line["left"])) {
+    const err = validateSegmentNames(line["left"]);
     if (err) return err;
   }
-  if (Array.isArray(line.right)) {
-    const err = validateSegmentNames(line.right);
+  if (Array.isArray(line["right"])) {
+    const err = validateSegmentNames(line["right"]);
     if (err) return err;
   }
   return null;
@@ -99,13 +99,13 @@ function extractSegmentNames(
 
 function toSegmentConfig(raw: unknown): SegmentConfig | undefined {
   if (!isRecord(raw)) return undefined;
-  if (typeof raw.enabled !== "boolean") return undefined;
+  if (typeof raw["enabled"] !== "boolean") return undefined;
   return {
-    enabled: raw.enabled,
-    ...(typeof raw.fg === "string" ? { fg: raw.fg } : {}),
-    ...(typeof raw.bg === "string" ? { bg: raw.bg } : {}),
-    ...(typeof raw.icon === "string" ? { icon: raw.icon } : {}),
-    ...(typeof raw.format === "string" ? { format: raw.format } : {}),
+    enabled: raw["enabled"],
+    ...(typeof raw["fg"] === "string" ? { fg: raw["fg"] } : {}),
+    ...(typeof raw["bg"] === "string" ? { bg: raw["bg"] } : {}),
+    ...(typeof raw["icon"] === "string" ? { icon: raw["icon"] } : {}),
+    ...(typeof raw["format"] === "string" ? { format: raw["format"] } : {}),
   };
 }
 
@@ -157,11 +157,13 @@ function mergeConfig(partial: Record<string, unknown>): Config {
       ...(segments ? toSegmentOverrides(segments) : {}),
     },
     settings_json_path:
-      typeof partial.settings_json_path === "string"
-        ? partial.settings_json_path
+      typeof partial["settings_json_path"] === "string"
+        ? partial["settings_json_path"]
         : DEFAULT_CONFIG.settings_json_path,
     output_path:
-      typeof partial.output_path === "string" ? partial.output_path : DEFAULT_CONFIG.output_path,
+      typeof partial["output_path"] === "string"
+        ? partial["output_path"]
+        : DEFAULT_CONFIG.output_path,
   };
 }
 

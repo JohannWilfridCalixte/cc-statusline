@@ -6,7 +6,6 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const TEST_DIR = join(tmpdir(), `cc-statusline-e2e-${Date.now()}`);
-const _CONFIG_PATH = join(TEST_DIR, "config.yaml");
 const OUTPUT_PATH = join(TEST_DIR, "statusline.sh");
 const SETTINGS_PATH = join(TEST_DIR, "settings.json");
 const CLI = join(import.meta.dir, "../../src/cli.ts");
