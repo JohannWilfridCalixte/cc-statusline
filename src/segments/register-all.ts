@@ -1,0 +1,16 @@
+import "./claude/model.ts";
+import "./claude/cost.ts";
+import "./claude/context-bar.ts";
+import "./claude/rate-limits.ts";
+import "./claude/duration.ts";
+import "./claude/lines-changed.ts";
+import "./claude/session-id.ts";
+import "./claude/vim-mode.ts";
+import "./claude/worktree.ts";
+import "./claude/agent-name.ts";
+import "./p10k/os-icon.ts";
+import "./p10k/user-host.ts";
+import "./p10k/time.ts";
+import "./p10k/directory.ts";
+import "./p10k/git-branch.ts";
+import "./p10k/git-status.ts";

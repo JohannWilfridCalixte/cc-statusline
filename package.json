@@ -1,10 +1,35 @@
 {
   "name": "cc-statusline",
+  "version": "0.1.0",
+  "description": "Generate a customizable Claude Code statusline script",
+  "keywords": ["claude-code", "statusline", "cli", "shell", "terminal"],
+  "license": "MIT",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "bin": {
+    "cc-statusline": "./src/cli.ts"
+  },
+  "files": [
+    "src",
+    "index.ts",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "dev": "bun run src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "knip": "knip"
+  },
+  "dependencies": {
+    "citty": "^0.2.1",
+    "yaml": "^2.8.3"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@biomejs/biome": "^2.4.8",
+    "@types/bun": "latest",
+    "knip": "^6.0.4"
   },
   "peerDependencies": {
     "typescript": "^5"
