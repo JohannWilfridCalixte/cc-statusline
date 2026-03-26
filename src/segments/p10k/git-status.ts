@@ -13,10 +13,10 @@ const definition: SegmentDefinition = {
     const icon = ctx.segmentConfig.icon ?? this.defaultIcon;
     const fg = ctx.segmentConfig.fg ?? this.defaultFg;
     return [
-      `if git rev-parse --git-dir >/dev/null 2>&1; then`,
-      `  ${varName}_STAGED=$(git diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')`,
-      `  ${varName}_MODIFIED=$(git diff --numstat 2>/dev/null | wc -l | tr -d ' ')`,
-      `  ${varName}_UNTRACKED=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')`,
+      `if git -C "$SEG_DIRECTORY_RAW" rev-parse --git-dir >/dev/null 2>&1; then`,
+      `  ${varName}_STAGED=$(git -C "$SEG_DIRECTORY_RAW" diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')`,
+      `  ${varName}_MODIFIED=$(git -C "$SEG_DIRECTORY_RAW" diff --numstat 2>/dev/null | wc -l | tr -d ' ')`,
+      `  ${varName}_UNTRACKED=$(git -C "$SEG_DIRECTORY_RAW" ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')`,
       `  ${varName}_PARTS=""`,
       `  if [ "$${varName}_STAGED" -gt 0 ] 2>/dev/null; then`,
       `    ${varName}_PARTS="${fg256("114")}+\${${varName}_STAGED}"`,

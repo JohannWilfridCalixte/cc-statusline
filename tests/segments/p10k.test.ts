@@ -96,7 +96,7 @@ describe("P10k git segments", () => {
 
     it("uses git rev-parse --abbrev-ref HEAD", () => {
       const code = segment.generateShellCode(makeContext());
-      expect(code).toContain("git rev-parse --abbrev-ref HEAD");
+      expect(code).toContain('git -C "$SEG_DIRECTORY_RAW" rev-parse --abbrev-ref HEAD');
       expect(code).toContain("SEG_GIT_BRANCH");
     });
 
@@ -116,15 +116,15 @@ describe("P10k git segments", () => {
 
     it("checks if in git repo before running commands", () => {
       const code = segment.generateShellCode(makeContext());
-      expect(code).toContain("git rev-parse --git-dir");
+      expect(code).toContain('git -C "$SEG_DIRECTORY_RAW" rev-parse --git-dir');
       expect(code).toContain("SEG_GIT_STATUS");
     });
 
     it("counts staged, modified, and untracked files", () => {
       const code = segment.generateShellCode(makeContext());
-      expect(code).toContain("git diff --cached --numstat");
-      expect(code).toContain("git diff --numstat");
-      expect(code).toContain("git ls-files --others --exclude-standard");
+      expect(code).toContain('git -C "$SEG_DIRECTORY_RAW" diff --cached --numstat');
+      expect(code).toContain('git -C "$SEG_DIRECTORY_RAW" diff --numstat');
+      expect(code).toContain('git -C "$SEG_DIRECTORY_RAW" ls-files --others --exclude-standard');
     });
 
     it("uses color coding for staged (green), modified (yellow), untracked (red)", () => {

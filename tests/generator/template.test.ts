@@ -18,8 +18,8 @@ describe("template", () => {
       expect(generateHeader()).toContain("cc-statusline generated");
     });
 
-    it("includes set -euo pipefail", () => {
-      expect(generateHeader()).toContain("set -euo pipefail");
+    it("does not include set -euo pipefail", () => {
+      expect(generateHeader()).not.toContain("set -euo pipefail");
     });
   });
 

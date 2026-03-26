@@ -4,7 +4,6 @@ export function generateHeader() {
     "# cc-statusline generated -- do not edit manually",
     "# Regenerate with: cc-statusline generate",
     "",
-    "set -euo pipefail",
     "",
   ].join("\n");
 }

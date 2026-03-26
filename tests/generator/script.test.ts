@@ -21,9 +21,9 @@ describe("script generator", () => {
     expect(script.startsWith("#!/usr/bin/env bash")).toBe(true);
   });
 
-  it("includes set -euo pipefail", () => {
+  it("does not include set -euo pipefail", () => {
     const script = generateScript(DEFAULT_CONFIG);
-    expect(script).toContain("set -euo pipefail");
+    expect(script).not.toContain("set -euo pipefail");
   });
 
   it("includes generated-file comment", () => {

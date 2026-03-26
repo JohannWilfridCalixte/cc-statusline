@@ -13,7 +13,7 @@ const definition: SegmentDefinition = {
     const icon = ctx.segmentConfig.icon ?? this.defaultIcon;
     const fg = ctx.segmentConfig.fg ?? this.defaultFg;
     return [
-      `${varName}_RAW=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)`,
+      `${varName}_RAW=$(git -C "$SEG_DIRECTORY_RAW" rev-parse --abbrev-ref HEAD 2>/dev/null)`,
       `if [ -n "$${varName}_RAW" ]; then`,
       `  ${varName}="${colorWrap(`${icon} $${varName}_RAW`, fg)}"`,
       `else`,
